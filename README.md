@@ -39,9 +39,9 @@ Follow the instructions at [Vue CLI Installation Guide](https://cli.vuejs.org/gu
    cd backend
    ```
 
-2. **Create a virtual environment (you may create using any method you prefer):**
+2. **Create a virtual environment. You may create it using any method you prefer for example:**
    ```
-   ex. python -m venv env
+   python -m venv env
    ```
 
 
@@ -65,7 +65,7 @@ pip install -r requirements.txt
 
 5. **Start the server:**
 ```
-uvicorn main --reload
+uvicorn main:app --reload
 ```
 The reload command is optional and used to reload the app on changes
 
@@ -77,6 +77,12 @@ The reload command is optional and used to reload the app on changes
 - Once both the frontend and backend servers are running, you can access the Job Management Dashboard(GUI) by navigating to [http://localhost:8080](http://localhost:8080) in your web browser.
 - After starting the backend server, you can access the Swagger UI documentation at [http://localhost:8000/docs](http://localhost:8000/docs).
 
+
+
+
+## Considerations
+
+The application used a SQL Lite
 
 ## Summary
 
