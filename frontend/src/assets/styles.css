@@ -1,6 +1,6 @@
 
 html, body {
-   @apply m-0 p-0 h-full w-full;
+  @apply m-0 p-0 h-full w-full;
 }
 
 body {
@@ -32,12 +32,10 @@ body {
 
 .job-list{
 	@apply bg-zinc-300 dark:bg-stone-700
-
 	text-xs sm:text-sm md:text-base 
 
 	lg:min-w-[50vh]
 	xl:min-w-fit
-
 
 	border-2 border-opacity-20 border-zinc-950 shadow-2xl rounded-md 
 	overflow-y-auto 
@@ -56,4 +54,9 @@ body {
 
 }
 
-
+.sort-controls{
+	@apply flex justify-between
+}
+.sort-controls >button{
+	@apply hover:text-white dark:hover:text-black
+}
