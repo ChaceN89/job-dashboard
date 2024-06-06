@@ -6,6 +6,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.data import client
 from app.routers import jobRouter
+from app.database import initialize_database
 
 # Create a FastAPI app
 app = FastAPI()
@@ -21,6 +22,11 @@ app.add_middleware(
 
 # Add the routers to the system
 app.include_router(jobRouter.router, prefix="/api")  # Include jobRouter with /api prefix
+
+# Event handler to create the database and optionally populate initial data
+@app.on_event("startup")
+def on_startup():
+    initialize_database()
 
 # Start the application
 if __name__ == "__main__":

@@ -33,6 +33,6 @@ async def update_job(job_id: int ):
     return jobCrud.update_job(job_id)
 
 # DELETE /jobs/{job_id} - Deletes a job record
-@router.delete("/{job_id}", response_model=schemas.Job)
+@router.delete("/{job_id}")
 async def delete_job(job_id: int, ):
     return jobCrud.delete_job(job_id)
