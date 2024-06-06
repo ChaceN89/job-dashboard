@@ -1,28 +1,24 @@
-.add-job {
-  @apply bg-green-500 text-white text-4xl rounded-full w-12 h-12 flex items-center justify-center cursor-pointer mt-4;
-}
 
 .sort-controls{
-	@apply flex justify-between
+	@apply flex justify-around pb-2
 }
 .sort-controls >button{
 	@apply hover:text-white dark:hover:text-black
 }
 
 .line{
-	@apply	mx-3 my-1 border-t-2 border-gray-800
+	@apply	mx-3  border-t-2 border-gray-800
 }
 
 
 .button-hover {
-  @apply hover:scale-125 hover:cursor-pointer  hover:text-slate-700;
+  @apply hover:scale-125 hover:cursor-pointer  hover:text-slate-700 dark:hover:text-slate-500;
 }
 
 .job {
-	@apply max-w-2xl 2xl:max-w-3xl break-words
-	
-}
+	@apply w-full break-words pt-2 hover:cursor-pointer hover:bg-slate-200 dark:hover:bg-stone-400 rounded-md;
 
+}
 
 
 .form-group {

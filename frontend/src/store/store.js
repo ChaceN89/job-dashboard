@@ -15,6 +15,7 @@ const getters = {
     }   
     return state.jobs.find(job => job.id === state.selected_id);
   }),
+  
   sortedJobs: computed(() => {
     const jobs = [...state.jobs];
     if (state.sortBy === 'date') {
@@ -29,7 +30,11 @@ const getters = {
       });
     }
     return jobs;
-  })
+  }),
+
+  getSelectedId: computed(() => state.selected_id),
+  getSortBy: computed(() => state.sortBy),
+  getSortOrder: computed(() => state.sortOrder)
 };
 
 const actions = {
@@ -45,9 +50,7 @@ const actions = {
   async getJobs() {
     const jobs = await fetchJobs();
     state.jobs = jobs;
-    if (jobs.length > 0) {
-      state.selected_id = jobs[0].id;
-    }
+
   },
   async createJob(jobData) {
     const newJob = await createJob(jobData);

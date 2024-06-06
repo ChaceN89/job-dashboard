@@ -1,7 +1,7 @@
 <template>
   <div v-if="selectedJob">
     <div class="details-header">
-      <h1>Job Details</h1>
+      <h1>Job Details </h1>
       <div>
         <font-awesome-icon
           v-if="isEditing.value"
@@ -60,8 +60,10 @@ export default {
   name: 'DisplayJob',
 
   setup() {
+    // get the select jobfrom the store - refresh it as it changes
     const selectedJob = computed(() => store.getters.getSelectedJob.value);
     
+    // create two variables for bool is editing and the editted value of the object
     const isEditing = reactive({ value: false });
     const editableJob = reactive({ ...selectedJob.value });
 
@@ -82,8 +84,8 @@ export default {
         text: "You won't be able to revert this!",
         icon: 'warning',
         showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
+        confirmButtonColor: '#d33',
+        cancelButtonColor: '#39C55E',
         confirmButtonText: 'Yes, delete it!'
       }).then((result) => {
         if (result.isConfirmed) {

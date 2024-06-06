@@ -37,8 +37,7 @@ body {
 	overflow-y-auto 
 	text-xs sm:text-sm md:text-base 
 
-	w-full
-	p-10 ;
+	w-full p-10 ;
 
 	max-height: calc(100vh - 7rem); /* Adjusting height to ensure it fits within the screen height */
 	box-sizing: border-box; /* Ensure padding is included in the width */

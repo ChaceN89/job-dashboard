@@ -1,11 +1,23 @@
 <template>
   <div>
     <div class="sort-controls">
-      <button @click="setSort('date')">Sort by Date</button>
-      <button @click="setSort('id')">Sort by ID</button>
-      <button @click="toggleSortOrder">Toggle Sort Order</button>
+      <button @click="setSort('id')">
+        Sort by Created
+        <font-awesome-icon v-if="sortBy === 'id' && sortOrder ==='desc'"  :icon="['fas', 'sort-down']"   />
+        <font-awesome-icon v-if="sortBy === 'id' && sortOrder ==='asc'"  :icon="['fas', 'sort-up']" />
+      </button>
+
+      <button @click="setSort('date')">
+        <font-awesome-icon v-if="sortBy === 'date' && sortOrder ==='desc'"  :icon="['fas', 'sort-down']"   />
+        <font-awesome-icon v-if="sortBy === 'date' && sortOrder ==='asc'"  :icon="['fas', 'sort-up']"   />
+        Sort by Date
+      </button>
+      <button @click="addJob">
+        <font-awesome-icon  :icon="['fas', 'plus']"   />
+      </button>
     </div>
-    <hr class="line py-2">
+    
+    <hr class="line">
 
     <ul>
       <!-- list all the jobs and highlight the active one -->
@@ -13,19 +25,17 @@
         :key="job.id" 
         @click="selectJob(job.id)"
         class="job"
-        :class="{'bg-yellow-200 rounded-lg': job.id === selectedJob?.id}" 
+        :class="{'bg-yellow-200 dark:bg-slate-600 rounded-lg': job.id === selectedJob?.id}" 
       >
-
-      <!-- add better display component here -->
-      {{ job.customerName }} - {{ job.jobType }} ({{ job.status }}) 
-      | {{ formatDate(job.appointmentDate) }}  | {{ job.technician }}
-      
+        <div>{{ job.customerName }} - {{ job.jobType }} ({{ job.status }}) </div>
+        <div>{{ formatDate(job.appointmentDate) }} </div>
+        <div> Technician: {{ job.technician }}</div>
 
         <hr v-if="index !== jobs.length - 1" class="line">
       </li>
     </ul>
 
-    <div class="add-job" @click="addJob">+</div>
+
 
   </div>
 </template>
@@ -49,8 +59,13 @@ export default {
       store.actions.setSelectedId(id);
     };
     // set the Sort by attribute in the store
-    const setSort = (sortBy) => {
-      store.actions.setSortBy(sortBy);
+    const setSort = (newSortBy) => {
+      const currentSortBy = sortBy.value;
+      if (currentSortBy === newSortBy) {
+        toggleSortOrder();
+      } else {
+        store.actions.setSortBy(newSortBy);
+      }
     };
 
     // toggle the order or sorting
@@ -58,6 +73,8 @@ export default {
       store.actions.setSortOrder(store.state.sortOrder === 'asc' ? 'desc' : 'asc');
     };
 
+    const sortBy = computed(() => store.getters.getSortBy.value);
+    const sortOrder = computed(() => store.getters.getSortOrder.value);
     
     const addJob = () => {
       store.actions.setSelectedId('newJob');
@@ -75,6 +92,8 @@ export default {
       setSort,
       toggleSortOrder,
       addJob,
+      sortBy,
+      sortOrder,
       formatDate
     };
   }
