@@ -52,7 +52,7 @@
 
 <script>
 import { store } from '../../store/store.js';
-import { computed, reactive } from 'vue';
+import { computed, reactive, watch } from 'vue';
 import { formatDate } from '../../utils/utils.js';
 import Swal from 'sweetalert2';
 
@@ -60,13 +60,18 @@ export default {
   name: 'DisplayJob',
 
   setup() {
-    // get the select jobfrom the store - refresh it as it changes
+    // Get the selected job from the store - refresh it as it changes
     const selectedJob = computed(() => store.getters.getSelectedJob.value);
     
-    // create two variables for bool is editing and the editted value of the object
+    // Create two variables for bool is editing and the edited value of the object
     const isEditing = reactive({ value: false });
     const editableJob = reactive({ ...selectedJob.value });
 
+    // Watch selected_id and set isEditing to false when it changes
+    watch(() => store.state.selected_id, () => {
+      isEditing.value = false;
+      Object.assign(editableJob, selectedJob.value); // Reset editable fields when selected_id changes
+    });
 
     const toggleEditMode = () => {
       isEditing.value = !isEditing.value;
@@ -94,9 +99,9 @@ export default {
             'Deleted!',
             'The job has been deleted.',
             'success'
-          )
+          );
         }
-      })
+      });
     };
 
     const deleteJob = async () => {
@@ -108,8 +113,6 @@ export default {
       isEditing.value = false;
       Object.assign(editableJob, selectedJob.value); // Reset fields on cancel
     };
-
-  
 
     return {
       selectedJob,
@@ -124,5 +127,3 @@ export default {
   }
 };
 </script>
-
-
