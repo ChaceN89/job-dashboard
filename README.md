@@ -4,35 +4,12 @@ Job Management Dashboard helps users efficiently manage job data. It features a 
 
 ## Environment Variable Setup
 
-If you are running the application locally, you don't need to have an .env file for either the frontend or backend.
+If you are running the application locally, you don't need to have an .env file for either the frontend or backend. While a .env file could be used the app is stil up to use local urls if no enviroment is detected.
 
-## Frontend
+## Other Setup Considerations
+A SQLite database is used and will be created when the backend Rest API is started 
 
-### Setting up Vue
-
-Follow the instructions at [Vue CLI Installation Guide](https://cli.vuejs.org/guide/installation.html) to set up Vue on your local machine.
-
-### Running the Application Locally
-
-1. **Navigate to the frontend folder:**
-   ```
-   cd frontend
-   ```
-   
-2. **Install Dependencies:**
-   ```
-   npm install
-   ```
-   
-3. **Start Development Server:**
-   ```
-   npm run serve
-   ```
-   
-
-4. **Open your browser and navigate to [http://localhost:8080](http://localhost:8080)**
-
-## Backend
+## Backend (Rest Api)
 
 1. **In a new terminal, navigate to the backend folder:**
    ```
@@ -41,7 +18,7 @@ Follow the instructions at [Vue CLI Installation Guide](https://cli.vuejs.org/gu
 
 2. **Create a virtual environment. You may create it using any perfered method, for example:**
    ```
-   python -m venv myenv
+   python3 -m venv myenv
    ```
 
 
@@ -67,6 +44,32 @@ pip install -r requirements.txt
 uvicorn main:app --reload
 ```
 The reload flag is optional and used to reload the app on when changes occur.
+
+
+## Frontend
+
+### Setting up Vue
+
+Follow the instructions at [Vue CLI Installation Guide](https://cli.vuejs.org/guide/installation.html) to set up Vue on your local machine.
+
+### Running the Application Locally
+
+1. **Navigate to the frontend folder:**
+   ```
+   cd frontend
+   ```
+   
+2. **Install Dependencies:**
+   ```
+   npm install
+   ```
+   
+3. **Start Development Server:**
+   ```
+   npm run serve
+   ```
+   
+4. **Open your browser and navigate to [http://localhost:8080](http://localhost:8080)**
 
 
 
