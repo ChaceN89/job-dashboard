@@ -54,7 +54,7 @@
 import { store } from '../../store/store.js';
 import { computed, reactive } from 'vue';
 import { formatDate } from '../../utils/utils.js';
-
+import Swal from 'sweetalert2';
 
 export default {
   name: 'DisplayJob',
@@ -77,9 +77,24 @@ export default {
     };
 
     const confirmDelete = () => {
-      if (confirm("Are you sure you want to delete this job?")) {
-        deleteJob();
-      }
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          deleteJob();
+          Swal.fire(
+            'Deleted!',
+            'The job has been deleted.',
+            'success'
+          )
+        }
+      })
     };
 
     const deleteJob = async () => {
