@@ -1,6 +1,6 @@
 <template>
   <div >
-    <h2>Create New Job</h2>
+    <h1>Create New Job</h1>
     <form @submit.prevent="submitForm">
       <div class="form-group">
         <label for="customerName">Customer Name</label>

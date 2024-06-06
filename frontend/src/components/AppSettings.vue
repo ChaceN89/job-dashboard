@@ -1,6 +1,6 @@
 <template>
   <div>
-    <font-awesome-icon class="buttonHover" :icon="['fas', 'gear']" size="2x" @click="togglePopup" />
+    <font-awesome-icon class="button-hover" :icon="['fas', 'gear']" size="2x" @click="togglePopup" />
     <transition name="dropdown">
       <div v-if="showPopup" class="popup">
         <p class="underline text-lg">Settings</p>

@@ -4,9 +4,7 @@
       <CreateJob />
     </div>
     <div v-else>
-      <p>Selected Job ID: {{ store.state.selected_id }}</p>
-      <hr>
-      <p>Selected Job: {{ selectedJob ? selectedJob : 'None' }}</p>
+			<DisplayJob />
     </div>
   </div>
 </template>
@@ -15,11 +13,13 @@
 import { store } from '../store/store.js';
 import { computed } from 'vue';
 import CreateJob from '../components/subComponents/CreateJob.vue';
+import DisplayJob from '../components/subComponents/DisplayJob.vue';
 
 export default {
   name: 'JobDetails',
   components: {
-    CreateJob
+    CreateJob,
+		DisplayJob
   },
   setup() {
     const selectedJob = computed(() => store.getters.getSelectedJob.value);
