@@ -9,7 +9,7 @@ Entry point into the applications code/components
       <JobDetails class="box"/>
     </div>
     <AppSettings class="settings"/>
-    <BreakPointVisualVue/>  <!-- Breakpoint is for testing -->
+    <!-- <BreakPointVisualVue/>  Breakpoint is for testing -->
 
   </div>
 </template>
@@ -17,7 +17,7 @@ Entry point into the applications code/components
 <script>
 // import the components that make up the bulk of the application 
 import AppSettings from './components/AppSettings.vue'
-import BreakPointVisualVue from './components/BreakPointVisual.vue'
+// import BreakPointVisualVue from './components/BreakPointVisual.vue'
 import JobDetails from './components/JobDetails.vue'
 import JobList from './components/JobList.vue'
 
@@ -26,8 +26,8 @@ export default {
   components: {
     AppSettings,
     JobDetails,
-    JobList,
-    BreakPointVisualVue
+    JobList
+    // BreakPointVisualVue
   }
 }
 </script>
