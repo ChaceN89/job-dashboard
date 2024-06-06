@@ -45,7 +45,6 @@
       <button @click="saveChanges">Save</button>
       <button @click="cancelEdit">Cancel</button>
       <button @click="confirmDelete" class="delete-button">Delete</button>
-      <ConfirmDialog @confirm="deleteJob" />
 
     </div>
   </div>
@@ -55,14 +54,11 @@
 import { store } from '../../store/store.js';
 import { computed, reactive } from 'vue';
 import { formatDate } from '../../utils/utils.js';
-import ConfirmDialog from '../ConfirmDialog.vue';
 
 
 export default {
   name: 'DisplayJob',
-  components: {
-    ConfirmDialog
-  },
+
   setup() {
     const selectedJob = computed(() => store.getters.getSelectedJob.value);
     
