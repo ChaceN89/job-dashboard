@@ -29,7 +29,7 @@
 
 <script>
 import { store } from '../store/store.js';
-import { computed } from 'vue';
+import { computed, onMounted } from 'vue';
 import { formatDate } from '../utils/utils.js';
 
 export default {
@@ -53,6 +53,11 @@ export default {
     const toggleSortOrder = () => {
       store.actions.setSortOrder(store.state.sortOrder === 'asc' ? 'desc' : 'asc');
     };
+
+    // Initialize jobs when the component is mounted
+    onMounted(() => {
+      store.actions.initializeJobs();
+    });
 
     return {
       jobs,
