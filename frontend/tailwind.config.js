@@ -1,12 +1,17 @@
-// tailwind.config.js
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  purge: ['./src/**/*.{vue,js,ts,jsx,tsx}', './public/index.html'],
-  darkMode: false, // or 'media' or 'class'
+  darkMode: 'class', // or 'media' or 'class'
+  content: [
+    './index.html',
+    './src/**/*.{vue,js,ts,jsx,tsx}',
+  ],
   theme: {
-    extend: {},
-  },
-  variants: {
-    extend: {},
+    extend: {
+      screens: {
+        'xxs': '400px', // Define your custom breakpoint (e.g., 400px)
+      },
+    },
   },
   plugins: [],
 }
+

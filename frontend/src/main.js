@@ -1,5 +1,13 @@
 import { createApp } from 'vue';
 import App from './App.vue';
-import './index.css';
+import setupFontAwesome from './plugins/font-awesome';
+// import store from './store'; // Import the Vuex store
+import './assets/tailwind.css';
+import './assets/styles.css';
 
-createApp(App).mount('#app');
+const app = createApp(App);
+
+setupFontAwesome(app);//use font awesome
+// app.use(store); // Use the Vuex store
+
+app.mount('#app');

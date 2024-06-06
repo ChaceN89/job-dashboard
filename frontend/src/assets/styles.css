@@ -1,0 +1,59 @@
+
+html, body {
+   @apply m-0 p-0 h-full w-full;
+}
+
+body {
+  @apply h-full ;
+}
+
+.app {
+	@apply min-h-screen
+
+	bg-zinc-200 dark:bg-stone-600
+	text-gray-800 dark:text-white
+
+	flex flex-col
+	px-10 ;
+}
+
+.header {
+  @apply text-3xl font-bold text-center py-4 shadow-2xl -mx-20;
+}
+
+.settings {
+  @apply fixed top-2 right-4 md:top-4 md:right-12;
+}
+
+.app-body {
+  @apply flex flex-col-reverse lg:flex-row
+	text-lg w-full;
+}
+
+.job-list{
+	@apply bg-zinc-300 dark:bg-stone-700
+
+	text-xs sm:text-sm md:text-base 
+
+	lg:min-w-[50vh]
+	xl:min-w-fit
+
+
+	border-2 border-opacity-20 border-zinc-950 shadow-2xl rounded-md 
+	overflow-y-auto 
+	p-10 px-10 mt-2;
+	max-height: calc(100vh - 5rem); /* Adjusting height to ensure it fits within the screen height */
+	box-sizing: border-box; /* Ensure padding is included in the width */
+}
+
+.job {
+	@apply max-w-2xl 2xl:max-w-3xl break-words 
+	
+}
+
+.job-details{
+  @apply flex-grow 
+
+}
+
+
