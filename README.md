@@ -4,7 +4,16 @@ Job Management Dashboard helps users efficiently manage job data. It features a 
 
 ## Environment Variable Setup
 
-If you are running the application locally, you don't need to have an .env file for either the frontend or backend. While a .env file could be used the app is stil up to use local urls if no enviroment is detected.
+If you are running the application locally, you don't need to have an .env file for either the frontend or backend as it is optional. 
+
+If you decide to use a .env file the frontend requires:
+- REACT_APP_API_URL=http://localhost:8000/api/jobs;
+
+The backend requires:
+- CLIENT=http://localhost:8080
+- api=http://localhost:8000
+
+If you deploy this application the URLs will need to be changed.
 
 ## Other Setup Considerations
 A SQLite database is used and will be created when the backend Rest API is started 
