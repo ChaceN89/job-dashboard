@@ -1,3 +1,6 @@
+<!-- App.vue 
+Entry point into the applications code/components 
+-->
 <template>
   <div class="app">
     <div class="header">Job Dashboard</div>
@@ -12,6 +15,7 @@
 </template>
 
 <script>
+// import the components that make up the bulk of the application 
 import AppSettings from './components/AppSettings.vue'
 import BreakPointVisualVue from './components/BreakPointVisual.vue'
 import JobDetails from './components/JobDetails.vue'

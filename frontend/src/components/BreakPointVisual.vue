@@ -1,3 +1,6 @@
+<!-- BreakPointVisual.vue
+  componets related to tailwind to show the breakpoints as the screen changes to better design responsive web pages
+-->
 <template>
   <div class="fixed top-0 left-0 m-1 p-1 z-50 font-mono text-white h-10 w-10 rounded-full flex items-center justify-center bg-gray-700 xxs:bg-purple-500 sm:bg-pink-500 md:bg-orange-500 lg:bg-green-500 xl:bg-blue-500 2xl:bg-black">
     <div class="block xxs:hidden">xxs</div>

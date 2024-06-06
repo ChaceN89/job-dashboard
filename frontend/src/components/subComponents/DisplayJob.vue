@@ -1,3 +1,6 @@
+<!-- DisplayJob.vue
+  for displayiung a job and having the options to edit it or delete it 
+-->
 <template>
   <div v-if="selectedJob">
     <div class="details-header">
@@ -73,16 +76,19 @@ export default {
       Object.assign(editableJob, selectedJob.value); // Reset editable fields when selected_id changes
     });
 
+    // edit mode on or off
     const toggleEditMode = () => {
       isEditing.value = !isEditing.value;
       Object.assign(editableJob, selectedJob.value); // Reset editable fields when toggling edit mode
     };
 
+    // save the cahnges and submit the update
     const saveChanges = async () => {
       await store.actions.updateJob(editableJob.id, editableJob);
       isEditing.value = false;
     };
 
+    // gives a swal dialog box to let user confirm delete
     const confirmDelete = () => {
       Swal.fire({
         title: 'Are you sure?',
@@ -104,11 +110,13 @@ export default {
       });
     };
 
+    // delete
     const deleteJob = async () => {
       await store.actions.deleteJob(editableJob.id);
       isEditing.value = false;
     };
 
+    // stop editting
     const cancelEdit = () => {
       isEditing.value = false;
       Object.assign(editableJob, selectedJob.value); // Reset fields on cancel

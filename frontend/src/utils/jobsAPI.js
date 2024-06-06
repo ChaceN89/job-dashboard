@@ -1,7 +1,10 @@
+// jobsAPI.js
+// functions to fetch data from the jobsAPI and return the results 
 import axios from 'axios';
 
 const API_URL = 'http://localhost:8000/api/jobs';
 
+// get all the jobs 
 export async function fetchJobs() {
   try {
     const response = await axios.get(API_URL);
@@ -12,6 +15,7 @@ export async function fetchJobs() {
   }
 }
 
+// get a single job using the job ID
 export async function fetchJob(jobId) {
   try {
     const response = await axios.get(`${API_URL}/${jobId}`);
@@ -22,6 +26,7 @@ export async function fetchJob(jobId) {
   }
 }
 
+// create a single job
 export async function createJob(jobData) {
   try {
     const response = await axios.post(API_URL, jobData);
@@ -32,6 +37,7 @@ export async function createJob(jobData) {
   }
 }
 
+// update a job using its id
 export async function updateJob(jobId, jobData) {
   try {
     const response = await axios.put(`${API_URL}/${jobId}`, jobData);
@@ -42,6 +48,7 @@ export async function updateJob(jobId, jobData) {
   }
 }
 
+// delete a job using its id
 export async function deleteJob(jobId) {
   try {
     const response = await axios.delete(`${API_URL}/${jobId}`);

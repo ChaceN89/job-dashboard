@@ -1,3 +1,7 @@
+<!-- jobList.vue
+  lists all the jobs and alows button to sort them 
+  each job can be selected which affects the state
+-->
 <template>
   <div>
     <div class="sort-controls">
@@ -16,7 +20,6 @@
         <font-awesome-icon  :icon="['fas', 'plus']"   />
       </button>
     </div>
-    
     <hr class="line">
 
     <ul>
@@ -34,8 +37,6 @@
         <hr v-if="index !== jobs.length - 1" class="line">
       </li>
     </ul>
-
-
 
   </div>
 </template>
@@ -73,9 +74,11 @@ export default {
       store.actions.setSortOrder(store.state.sortOrder === 'asc' ? 'desc' : 'asc');
     };
 
+    // get the sorting options
     const sortBy = computed(() => store.getters.getSortBy.value);
     const sortOrder = computed(() => store.getters.getSortOrder.value);
     
+    // function to add a job
     const addJob = () => {
       store.actions.setSelectedId('newJob');
     };

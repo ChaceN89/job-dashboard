@@ -1,5 +1,6 @@
 // utils.js
-// useful functions
+// function to formate the date 
+// can add more functions here as needed
 
 export function formatDate(dateString) {
   const options = {

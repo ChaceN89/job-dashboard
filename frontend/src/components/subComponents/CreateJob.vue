@@ -1,3 +1,6 @@
+<!-- CreateJob.vue
+  component to use a form to create a new job
+-->
 <template>
   <div >
     <h1>Create New Job</h1>
@@ -44,6 +47,7 @@ export default {
     };
   },
   methods: {
+    // submit trhough the store to keep track of the state
     async submitForm() {
       const jobData = {
         ...this.job,
@@ -53,6 +57,8 @@ export default {
       // Optionally reset the form or navigate to a different page
       this.resetForm();
     },
+
+    // reset upon completion
     resetForm() {
       this.job = {
         customerName: '',

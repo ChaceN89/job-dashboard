@@ -1,3 +1,6 @@
+<!-- AppSetting.vue
+  settings - only for dark mode toggle 
+-->
 <template>
   <div>
     <font-awesome-icon class="button-hover" :icon="['fas', 'gear']" size="2x" @click="togglePopup" />

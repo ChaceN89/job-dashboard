@@ -1,3 +1,6 @@
+<!-- JobDetails.vue
+  desides to show the create job form or the display job component depending on selected job or pressnew job button 
+-->
 <template>
   <div>
     <div v-if="isCreatingNewJob">

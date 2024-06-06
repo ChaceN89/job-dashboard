@@ -1,6 +1,10 @@
+// store.js
+// contains the state and state management for the application 
 import { reactive, computed } from 'vue';
-import { fetchJobs, fetchJob, createJob, updateJob, deleteJob } from '../api/jobs';
+import { fetchJobs, fetchJob, createJob, updateJob, deleteJob } from '../utils/jobsAPI';
 
+// create a state with the job infoamtion 
+// also decided to keep track or order in this component
 const state = reactive({
   jobs: [],
   selected_id: null,
@@ -8,14 +12,19 @@ const state = reactive({
   sortOrder: 'asc' // Default sorting order (ascending)
 });
 
+// getters to fetch state infomation 
 const getters = {
+  // the current selected job - this is based on the selected id
   getSelectedJob: computed(() => {
+    // if the currently selected job is a string then don't return a job as a new job is being created
     if (isNaN(state.selected_id)) {
       return "newJob";
     }   
+    // go through the jobs to get the selected on
     return state.jobs.find(job => job.id === state.selected_id);
   }),
   
+  // get the sorted jobs based on sorting by data or ID(most recent created) - also based or order (asc or desc)
   sortedJobs: computed(() => {
     const jobs = [...state.jobs];
     if (state.sortBy === 'date') {
@@ -32,21 +41,27 @@ const getters = {
     return jobs;
   }),
 
+  // to get the rest of the infoamiton
   getSelectedId: computed(() => state.selected_id),
   getSortBy: computed(() => state.sortBy),
   getSortOrder: computed(() => state.sortOrder)
 };
 
+// functions used to change the states
 const actions = {
+  // set the new selected ID
   setSelectedId(newId) {
     state.selected_id = newId;
   },
+  // cahnge the sorting options
   setSortBy(sortBy) {
     state.sortBy = sortBy;
   },
   setSortOrder(sortOrder) {
     state.sortOrder = sortOrder;
   },
+
+  // async to access data from the backend
   async getJobs() {
     const jobs = await fetchJobs();
     state.jobs = jobs;
@@ -80,6 +95,7 @@ const actions = {
   }
 };
 
+// export the state, getters and actions 
 export const store = {
   state,
   getters,

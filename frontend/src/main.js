@@ -1,3 +1,5 @@
+// App.vue 
+// Entry point into the applications setting up the fontawesome icons and importing styles
 import { createApp } from 'vue';
 import App from './App.vue';
 import setupFontAwesome from './plugins/font-awesome';
