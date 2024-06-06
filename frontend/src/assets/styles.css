@@ -14,11 +14,10 @@ body {
 	text-gray-800 dark:text-white
 
 	flex flex-col
-	px-10 ;
 }
 
 .header {
-  @apply text-3xl font-bold text-center py-4 shadow-2xl -mx-20;
+  @apply text-3xl font-bold text-center py-4 shadow-2xl ;
 }
 
 .settings {
@@ -26,26 +25,21 @@ body {
 }
 
 .app-body {
-  @apply flex flex-col-reverse lg:flex-row
+  @apply flex flex-col-reverse lg:flex-row gap-5 py-5 px-6 xl:px-14
 	text-lg w-full;
 }
 
-.job-list{
-	@apply bg-zinc-300 dark:bg-stone-700
+.box{
+	@apply 
+	bg-zinc-300 dark:bg-stone-700
+	border-2 border-opacity-20 border-zinc-950 shadow-2xl rounded-lg
+
+	overflow-y-auto 
 	text-xs sm:text-sm md:text-base 
 
-	lg:min-w-[50vh]
-	xl:min-w-fit
+	w-full
+	p-10 ;
 
-	border-2 border-opacity-20 border-zinc-950 shadow-2xl rounded-md 
-	overflow-y-auto 
-	p-10 px-10 mt-2;
-	max-height: calc(100vh - 5rem); /* Adjusting height to ensure it fits within the screen height */
+	max-height: calc(100vh - 7rem); /* Adjusting height to ensure it fits within the screen height */
 	box-sizing: border-box; /* Ensure padding is included in the width */
-}
-
-
-.job-details{
-  @apply flex-grow lg:w-1/2
-
 }

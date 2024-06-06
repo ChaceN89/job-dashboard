@@ -65,7 +65,7 @@ export default {
 
     // Fetch the jobs list  when the component is mounted
     onMounted(() => {
-      store.actions.initializeJobs();
+      store.actions.getJobs();
     });
 
     return {

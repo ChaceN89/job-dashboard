@@ -13,8 +13,58 @@
 	@apply	mx-3 my-1 border-t-2 border-gray-800
 }
 
-
 .job {
 	@apply max-w-2xl 2xl:max-w-3xl break-words
 	
 }
+
+
+
+h2 {
+  @apply text-2xl font-bold mb-4;
+}
+
+.form-group {
+  @apply mb-4;
+}
+
+label {
+  @apply block text-base font-medium text-gray-700 dark:text-gray-300 mb-1;
+}
+
+input {
+  @apply mt-1 block w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:text-gray-300;
+}
+
+button {
+  @apply mt-4 bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-700;
+}
+
+
+
+
+/* Custom Scrollbar Styling */
+.box::-webkit-scrollbar {
+  width: 8px;
+  background-color: #f1f1f1; /* Background color of the scrollbar track */
+  border-radius: 5px;
+
+}
+
+.box::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #6b7280, #374151); /* Gradient color for the scrollbar thumb */
+  border-radius: 10px; /* Rounded corners for the scrollbar thumb */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* Adding shadow for a 3D effect */
+  transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transition for hover effects */
+}
+
+.box::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #374151, #111827); /* Darker gradient on hover */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); /* More pronounced shadow on hover */
+}
+
+.box::-webkit-scrollbar-track {
+  background: #e5e7eb; /* Lighter background for the scrollbar track */
+  border-radius: 10px; /* Matching the thumb's border radius */
+} 
+

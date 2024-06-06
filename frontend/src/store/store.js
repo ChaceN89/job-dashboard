@@ -1,5 +1,5 @@
 import { reactive, computed } from 'vue';
-import { fetchJobs } from '../api/jobs';
+import { fetchJobs, fetchJob, createJob, updateJob, deleteJob } from '../api/jobs';
 
 const state = reactive({
   jobs: [],
@@ -42,12 +42,38 @@ const actions = {
   setSortOrder(sortOrder) {
     state.sortOrder = sortOrder;
   },
-  async initializeJobs() {
+  async getJobs() {
     const jobs = await fetchJobs();
     state.jobs = jobs;
     if (jobs.length > 0) {
       state.selected_id = jobs[0].id;
     }
+  },
+  async createJob(jobData) {
+    const newJob = await createJob(jobData);
+    if (newJob) {
+      state.jobs.push(newJob);
+      state.selected_id = newJob.id;
+    }
+  },
+  async updateJob(jobId, jobData) {
+    const updatedJob = await updateJob(jobId, jobData);
+    if (updatedJob) {
+      const index = state.jobs.findIndex(job => job.id === jobId);
+      if (index !== -1) {
+        state.jobs[index] = updatedJob.job;
+      }
+    }
+  },
+  async deleteJob(jobId) {
+    const deletedJob = await deleteJob(jobId);
+    if (deletedJob) {
+      state.jobs = state.jobs.filter(job => job.id !== jobId);
+      state.selected_id = null;
+    }
+  },
+  async fetchJob(jobId) {
+    return await fetchJob(jobId);
   }
 };
 

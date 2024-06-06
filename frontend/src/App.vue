@@ -2,8 +2,8 @@
   <div class="app">
     <div class="header">Job Dashboard</div>
     <div class="app-body">
-      <JobList class="job-list"/>
-      <JobDetails class="job-details"/>
+      <JobList class="box"/>
+      <JobDetails class="box"/>
     </div>
     <AppSettings class="settings"/>
     <BreakPointVisualVue/>  <!-- Breakpoint is for testing -->
