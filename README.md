@@ -18,7 +18,7 @@ If you deploy this application the URLs will need to be changed.
 ## Other Setup Considerations
 A SQLite database is used and will be created when the backend Rest API is started 
 
-## Backend (Rest Api)
+## Backend (Rest API)
 
 1. **In a new terminal, navigate to the backend folder:**
    ```
