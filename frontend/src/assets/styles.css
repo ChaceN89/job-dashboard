@@ -44,19 +44,8 @@ body {
 	box-sizing: border-box; /* Ensure padding is included in the width */
 }
 
-.job {
-	@apply max-w-2xl 2xl:max-w-3xl break-words 
-	
-}
 
 .job-details{
-  @apply flex-grow 
+  @apply flex-grow lg:w-1/2
 
-}
-
-.sort-controls{
-	@apply flex justify-between
-}
-.sort-controls >button{
-	@apply hover:text-white dark:hover:text-black
 }

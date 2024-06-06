@@ -5,7 +5,7 @@
       <button @click="setSort('id')">Sort by ID</button>
       <button @click="toggleSortOrder">Toggle Sort Order</button>
     </div>
-    <hr v-if="index !== jobs.length - 1" class="mx-3 border-t-2 border-gray-800 py-2">
+    <hr class="line py-2">
 
     <ul>
       <!-- list all the jobs and highlight the active one -->
@@ -21,9 +21,12 @@
       | {{ formatDate(job.appointmentDate) }}  | {{ job.technician }}
       
 
-        <hr v-if="index !== jobs.length - 1" class="mx-3 border-t-2 border-gray-800">
+        <hr v-if="index !== jobs.length - 1" class="line">
       </li>
     </ul>
+
+    <div class="add-job" @click="addJob">+</div>
+
   </div>
 </template>
 
@@ -45,16 +48,22 @@ export default {
     const selectJob = (id) => {
       store.actions.setSelectedId(id);
     };
-
+    // set the Sort by attribute in the store
     const setSort = (sortBy) => {
       store.actions.setSortBy(sortBy);
     };
 
+    // toggle the order or sorting
     const toggleSortOrder = () => {
       store.actions.setSortOrder(store.state.sortOrder === 'asc' ? 'desc' : 'asc');
     };
 
-    // Initialize jobs when the component is mounted
+    
+    const addJob = () => {
+      store.actions.setSelectedId('newJob');
+    };
+
+    // Fetch the jobs list  when the component is mounted
     onMounted(() => {
       store.actions.initializeJobs();
     });
@@ -65,6 +74,7 @@ export default {
       selectJob,
       setSort,
       toggleSortOrder,
+      addJob,
       formatDate
     };
   }

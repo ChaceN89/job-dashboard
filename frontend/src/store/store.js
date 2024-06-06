@@ -10,6 +10,9 @@ const state = reactive({
 
 const getters = {
   getSelectedJob: computed(() => {
+    if (isNaN(state.selected_id)) {
+      return "newJob";
+    }   
     return state.jobs.find(job => job.id === state.selected_id);
   }),
   sortedJobs: computed(() => {

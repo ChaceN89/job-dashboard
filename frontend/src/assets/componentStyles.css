@@ -1,0 +1,20 @@
+.add-job {
+  @apply bg-green-500 text-white text-4xl rounded-full w-12 h-12 flex items-center justify-center cursor-pointer mt-4;
+}
+
+.sort-controls{
+	@apply flex justify-between
+}
+.sort-controls >button{
+	@apply hover:text-white dark:hover:text-black
+}
+
+.line{
+	@apply	mx-3 my-1 border-t-2 border-gray-800
+}
+
+
+.job {
+	@apply max-w-2xl 2xl:max-w-3xl break-words
+	
+}

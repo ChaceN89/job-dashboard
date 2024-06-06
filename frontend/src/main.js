@@ -4,6 +4,7 @@ import setupFontAwesome from './plugins/font-awesome';
 // import store from './store'; // Import the Vuex store
 import './assets/tailwind.css';
 import './assets/styles.css';
+import './assets/componentStyles.css';
 
 const app = createApp(App);
 
