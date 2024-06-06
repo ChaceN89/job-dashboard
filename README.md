@@ -100,13 +100,13 @@ The application is comprised of the following components:
 
 ### Why These Technologies Were Chosen
 
-**Vue:** I have some experience with Vue and wanted to explore using it for making API requests as I have done often in React. Vue's reactive nature and state mangement make it a great choice for building a dynamic web applications that responds to changes in data.
+**Vue:** I have some experience with Vue and wanted to explore using it for making API requests as I have done often in React. Vue's reactive nature and state management make it a great choice for building dynamic web applications that respond to data changes.
 
 **FastAPI:** I am familiar with FastAPI and have enjoyed using its documentation tools, particularly Swagger. FastAPI's ability to automatically generate interactive API documentation with Swagger UI and ReDoc is a significant advantage for showcasing the application's endpoints.
 
 **SQLite:** While a simpler backend could have been implemented using in-memory data structures, I chose to include a simple database to gain experience with SQLite. SQLite's lightweight nature and ease of use make it an excellent choice for managing simple data.
 
-**Tailwind:** I have used Tailwind to style many applications. I find it very simple to use  while building an application. I also like that it can work with standard CSS classes to allow flexability.
+**Tailwind:** I have used Tailwind to style many applications. I find it very simple to use  while building an application. I also like that it can work with standard CSS classes to allow flexibility.
 
 ### Application Features
 
