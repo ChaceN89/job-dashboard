@@ -23,7 +23,7 @@ app.add_middleware(
 # Add the routers to the system
 app.include_router(jobRouter.router, prefix="/api")  # Include jobRouter with /api prefix
 
-# Event handler to create the database and optionally populate initial data
+# Event handler to create the database and populate initial data if it doesn't exist 
 @app.on_event("startup")
 def on_startup():
     initialize_database()

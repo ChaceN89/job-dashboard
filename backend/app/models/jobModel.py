@@ -4,7 +4,7 @@
 from sqlalchemy import Column, Integer, String, DateTime
 from app.database import Base
 
-# The model used for each Job in the database
+# The model used for each Job in the database table
 class Job(Base):
     __tablename__ = "jobs"
 

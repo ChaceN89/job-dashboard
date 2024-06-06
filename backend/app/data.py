@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 # Load environment variables from .env file
 load_dotenv()
 
-# Read environment variables with fallback values for local development
+# Read environment variables with fallback values for local development if no .env file is found
 client = os.getenv('CLIENT', 'http://localhost:8080')
 api = os.getenv('API', 'http://localhost:8000')
 

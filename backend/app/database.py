@@ -5,6 +5,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, Session
 from app.data import initial_job_data
+from datetime import datetime
 import os
 
 # Database setup URL
@@ -15,10 +16,14 @@ engine = create_engine(
     DATABASE_URL, 
     connect_args={"check_same_thread": False}  # Allows usage across multiple threads
 )
-SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-Base = declarative_base()
+SessionLocal = sessionmaker(
+    autocommit=False,  # Disable autocommit to ensure explicit control over transactions
+    autoflush=False,   # Disable autoflush to prevent premature flushes of pending changes
+    bind=engine        # Bind the session to the engine, so it uses the SQLite database specified
+)
+Base = declarative_base() # Base class for our ORM models
 
-# Function to get the database session
+# Function to get the database session - used as dependency for the routes
 def get_db():
     db = SessionLocal()
     try:
@@ -28,10 +33,15 @@ def get_db():
 
 # Function to populate initial job data
 def populate_initial_data(db: Session):
-    from app.models.jobModel import Job  # Import inside the function to avoid circular import
+    from app.models.jobModel import Job # prevetn circular import by importing this after
+
+    # for all the initial data add it to the database
     for job_data in initial_job_data:
+        # Convert appointmentDate from string to datetime from initial data (to use the original formated data)
+        job_data['appointmentDate'] = datetime.fromisoformat(job_data['appointmentDate'].replace('Z', '+00:00'))
         job = Job(**job_data)
         db.add(job)
+    # commit changes 
     db.commit()
 
 # Function to initialize the database
@@ -41,8 +51,7 @@ def initialize_database():
 
     # If the database doesn't exist, then create it
     if not db_exists:
-        from app.models.jobModel import Job  # Import inside the function to avoid circular import
         Base.metadata.create_all(bind=engine)
         db = Session(engine)  # Get session
         populate_initial_data(db)  # Call population function
-        db.close()
+        db.close() # close the database 

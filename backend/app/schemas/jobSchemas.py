@@ -13,14 +13,23 @@ class JobBase(BaseModel):
     appointmentDate: datetime
     technician: str
 
-# Used to create jobs
+# Used to create jobs - separate from JobBase but can be altered and is more clear which operation it is using
 class JobCreate(JobBase):
     pass
 
-# Add an ID to JobBase
-class Job(JobBase):
-    id: int
+# Used to update jobs
+class JobUpdate(JobBase):
+    pass
 
-    # For access to the database
-    class Config:
+# Add an ID to JobBase for database
+class JobGet(JobBase):
+    id: int
+    class Config: # For access to the database
+        orm_mode = True
+
+# Return model for a deleted job - with a job and a message as separate entities
+class JobMessage(BaseModel):
+    job:JobGet
+    message: str
+    class Config: # For access to the database
         orm_mode = True
