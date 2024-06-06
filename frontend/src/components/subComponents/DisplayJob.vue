@@ -44,6 +44,9 @@
     <div v-if="isEditing.value" class="details-header">
       <button @click="saveChanges">Save</button>
       <button @click="cancelEdit">Cancel</button>
+      <button @click="confirmDelete" class="delete-button">Delete</button>
+      <ConfirmDialog @confirm="deleteJob" />
+
     </div>
   </div>
 </template>
@@ -52,10 +55,14 @@
 import { store } from '../../store/store.js';
 import { computed, reactive } from 'vue';
 import { formatDate } from '../../utils/utils.js';
+import ConfirmDialog from '../ConfirmDialog.vue';
 
 
 export default {
   name: 'DisplayJob',
+  components: {
+    ConfirmDialog
+  },
   setup() {
     const selectedJob = computed(() => store.getters.getSelectedJob.value);
     
@@ -73,10 +80,23 @@ export default {
       isEditing.value = false;
     };
 
+    const confirmDelete = () => {
+      if (confirm("Are you sure you want to delete this job?")) {
+        deleteJob();
+      }
+    };
+
+    const deleteJob = async () => {
+      await store.actions.deleteJob(editableJob.id);
+      isEditing.value = false;
+    };
+
     const cancelEdit = () => {
       isEditing.value = false;
       Object.assign(editableJob, selectedJob.value); // Reset fields on cancel
     };
+
+  
 
     return {
       selectedJob,
@@ -85,7 +105,8 @@ export default {
       editableJob,
       toggleEditMode,
       saveChanges,
-      cancelEdit
+      cancelEdit,
+      confirmDelete
     };
   }
 };
