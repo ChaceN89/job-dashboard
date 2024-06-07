@@ -2,12 +2,16 @@
 
 Job Management Dashboard helps users efficiently manage job data. It features a FastAPI backend with RESTful API endpoints and a Vue frontend styled with Tailwind CSS. The backend handles job data management, while the frontend provides an intuitive interface for interacting with the services.
 
+## Deployment 
+This site is deployed using Netlify and Render the website can be found [here](chacenielson.com)
+
 ## Environment Variable Setup
 
 If you are running the application locally, you don't need to have an .env file for either the frontend or backend as it is optional. 
 
 If you decide to use a .env file the frontend requires:
-- REACT_APP_API_URL=http://localhost:8000/api/jobs;
+- VUE_APP_API_URL=http://localhost:8000/api/jobs;
+
 
 The backend requires:
 - CLIENT=http://localhost:8080
@@ -96,6 +100,8 @@ The application is comprised of the following components:
 - **FastAPI** for the RestAPI
 - **SQLite** for the database
 - **Tailwind and CSS** for the frontend style
+- **Render** for deploying the backend
+- **Netlify** for deploying the fronten
 
 
 ### Why These Technologies Were Chosen
