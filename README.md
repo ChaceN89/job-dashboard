@@ -1,9 +1,11 @@
 # Job Management Dashboard
 
-Job Management Dashboard helps users efficiently manage job data. It features a FastAPI backend with RESTful API endpoints and a Vue frontend styled with Tailwind CSS. The backend handles job data management, while the frontend provides an intuitive interface for interacting with the services.
+This Job Management Dashboard helps users efficiently manage job data. It features a FastAPI backend with RESTful API endpoints and a Vue frontend styled with Tailwind CSS. The backend handles job data management, while the frontend provides an intuitive interface for interacting with the services.
 
 ## Deployment 
 This site is deployed using Netlify and Render the website can be found [here](https://job-dashboard-chace.netlify.app/)
+
+A video demonstration can be found [here](https://youtu.be/IFc1O1aE8D0)
 
 ## Environment Variable Setup
 
